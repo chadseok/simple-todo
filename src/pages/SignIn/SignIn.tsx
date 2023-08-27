@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ROUTE_PATH } from "@/lib/constants";
 
 const SignIn = () => {
   return (
@@ -36,7 +37,7 @@ const SignIn = () => {
       </form>
       <div className="text-center py-4 text-xs">
         <span>아직 계정이 없나요? </span>
-        <Link to="/signup" className="text-blue-500 font-semibold">
+        <Link to={ROUTE_PATH.SIGN_UP} className="text-blue-500 font-semibold">
           회원가입하기
         </Link>
       </div>

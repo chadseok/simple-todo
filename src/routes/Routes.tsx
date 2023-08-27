@@ -1,15 +1,16 @@
 import { Navigate, Outlet } from "react-router-dom";
+import { USER_TOKEN, ROUTE_PATH } from "@/lib/constants";
 
 export const PublicRoute = () => {
   return <Outlet />;
 };
 
 export const AuthOnlyRoute = () => {
-  const token = localStorage.getItem("token");
-  return token ? <Outlet /> : <Navigate to="/signin" />;
+  const token = localStorage.getItem(USER_TOKEN);
+  return token ? <Outlet /> : <Navigate to={ROUTE_PATH.SIGN_IN} />;
 };
 
 export const GuestOnlyRoute = () => {
-  const token = localStorage.getItem("token");
-  return token ? <Navigate to="/todo" /> : <Outlet />;
+  const token = localStorage.getItem(USER_TOKEN);
+  return token ? <Navigate to={ROUTE_PATH.TODO} /> : <Outlet />;
 };
