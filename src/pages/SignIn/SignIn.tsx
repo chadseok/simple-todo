@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
-import { ROUTE_PATH, USER_AUTH_TOKEN } from "@/lib/constants";
+import { ROUTE_PATH, USER_AUTH_TOKEN, ERROR_MSG } from "@/lib/constants";
 import { validator } from "@/lib/helpers/validator";
 import { signInApi } from "@/api/auth";
 
@@ -32,8 +32,8 @@ const SignIn = () => {
     const notValidPassword = !validator.checkPassword(userAccount.password);
 
     const newErrorMsg = {
-      emailError: notValidEmail ? "이메일 틀림" : "",
-      passwordError: notValidPassword ? "비밀번호 틀림" : "",
+      emailError: notValidEmail ? ERROR_MSG.NOT_VALID_EMAIL : "",
+      passwordError: notValidPassword ? ERROR_MSG.NOT_VALID_PWD : "",
       signInError: "",
     };
     setErrorMsg(newErrorMsg);
