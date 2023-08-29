@@ -29,15 +29,14 @@ const SignIn = () => {
     event.preventDefault();
 
     const notValidEmail = !validator.checkEmail(userAccount.email);
-    const notValidPassword = !validator.checkEmail(userAccount.password);
+    const notValidPassword = !validator.checkPassword(userAccount.password);
 
-    if (notValidEmail) {
-      setErrorMsg({ ...errorMsg, emailError: "이메일 틀림" });
-    }
-
-    if (notValidPassword) {
-      setErrorMsg({ ...errorMsg, passwordError: "비밀번호 틀림" });
-    }
+    const newErrorMsg = {
+      emailError: notValidEmail ? "이메일 틀림" : "",
+      passwordError: notValidPassword ? "비밀번호 틀림" : "",
+      signInError: "",
+    };
+    setErrorMsg(newErrorMsg);
 
     if (notValidEmail || notValidPassword) return;
 
@@ -48,7 +47,7 @@ const SignIn = () => {
     } catch (error) {
       if (error instanceof AxiosError) {
         setErrorMsg({
-          ...errorMsg,
+          ...newErrorMsg,
           signInError: error.response ? error.response.data.message : null,
         });
       }
@@ -99,7 +98,7 @@ const SignIn = () => {
           </div>
         </div>
         <button
-          className="bg-gray-900 h-10 rounded-lg text-white disabled:opacity-30"
+          className="bg-gray-900 h-10 rounded-lg text-white"
           type="submit"
         >
           로그인
