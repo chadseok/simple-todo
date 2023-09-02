@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home, Todo, SignIn, SignUp, Error } from "@/pages";
 import { ROUTE_PATH } from "@/lib/constants";
 import { PublicRoute, AuthOnlyRoute, GuestOnlyRoute } from "./Routes";
+import { todoLoader } from "./loader";
 
 const routerObject = createBrowserRouter([
   {
@@ -13,7 +14,12 @@ const routerObject = createBrowserRouter([
   {
     element: <AuthOnlyRoute />,
     children: [
-      { path: ROUTE_PATH.TODO, element: <Todo />, errorElement: <Error /> },
+      {
+        path: ROUTE_PATH.TODO,
+        element: <Todo />,
+        errorElement: <Error />,
+        loader: todoLoader,
+      },
     ],
   },
   {
