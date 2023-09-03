@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home, Todo, SignIn, SignUp, Error } from "@/pages";
+import { Home, Todo, SignIn, SignUp, Error, PageNotFound } from "@/pages";
 import { ROUTE_PATH } from "@/lib/constants";
 import { PublicRoute, AuthOnlyRoute, GuestOnlyRoute } from "./Routes";
 import { todoLoader } from "./loader";
@@ -9,6 +9,7 @@ const routerObject = createBrowserRouter([
     element: <PublicRoute />,
     children: [
       { path: ROUTE_PATH.HOME, element: <Home />, errorElement: <Error /> },
+      { path: ROUTE_PATH.NO_MATCH, element: <PageNotFound /> },
     ],
   },
   {

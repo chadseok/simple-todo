@@ -3,6 +3,7 @@ export const ROUTE_PATH = {
   TODO: "/todo",
   SIGN_IN: "/signin",
   SIGN_UP: "/signup",
+  NO_MATCH: "*",
 };
 
 export const API_PATH = {
