@@ -29,7 +29,7 @@ function TodoItem(props: Props) {
     setEditMode(true);
   };
 
-  const editTodoText = () => async () => {
+  const editTodoText = async () => {
     try {
       const res = await updateTodoApi({ ...todoData, todo: newTodo });
       setTodoData(res.data);
