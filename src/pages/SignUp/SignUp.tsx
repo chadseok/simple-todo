@@ -54,7 +54,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="bg-white w-96 rounded-md shadow-md">
+    <div className="bg-white w-96 rounded-md shadow-md overflow-hidden">
       <h1 className="text-xl text-white p-4 bg-gray-900">회원가입</h1>
       {errorMsg.signUpError && (
         <div className="text-xs text-white font-bold bg-orange-600 py-3 px-4 ">

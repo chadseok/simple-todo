@@ -55,7 +55,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="bg-white w-96 rounded-md shadow-md">
+    <div className="bg-white w-96 rounded-md shadow-md overflow-hidden">
       <h1 className="text-xl text-white p-4 bg-gray-900">로그인</h1>
       {errorMsg.signInError && (
         <div className="text-xs text-white font-bold bg-orange-600 py-3 px-4 ">
