@@ -71,7 +71,7 @@ const SignIn = () => {
             className={`w-full py-4 px-2 h-12 rounded-md border-2 ${
               errorMsg.emailError ? "border-orange-600" : "border-slate-200"
             }`}
-            type="email"
+            type="text"
             id="email"
             value={userAccount.email}
             onChange={changeEmail}
